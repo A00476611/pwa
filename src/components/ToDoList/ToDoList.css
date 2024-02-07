@@ -1,3 +1,34 @@
-.ToDoList {
-    
+:root{
+    --background-color:white;
+}
+
+[theme="dark"] {
+    --background-color:#ffffff57;
+}
+
+.ToDoList{
+    width: 100%;
+    box-sizing: border-box;
+    height: 90vh;
+    padding: 2vh 2vw;
+    background-color: var(--background-color);
+}
+
+.ToDoItem {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    border-bottom: gainsboro solid thin;
+    justify-content: space-between;
+}
+
+@media (min-width: 720px) {
+    .ToDoList {
+        max-width: 800px;
+        box-sizing: border-box;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        border-radius: 10px;
+        
+    }
 }

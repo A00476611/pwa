@@ -1,5 +1,6 @@
 import { ToDoItem, ToDoItemType, ToDoStorage } from "./"
 import { FormEventHandler, useEffect, useState } from "react"
+import './ToDoList.css'
 
 export const ToDoList = ({initialTodos = []}:{initialTodos?:ToDoItemType[]}) => {
     const [todos, setTodos] = useState(initialTodos)
@@ -32,11 +33,10 @@ export const ToDoList = ({initialTodos = []}:{initialTodos?:ToDoItemType[]}) => 
     }, [todos])
 
     return (
-        <div className="TodoList">
-            <h1>My List</h1>
+        <div className="ToDoList">
             <form onSubmit={handleAdd}>
                 <input name="newItem"/>
-                <button type="submit">Add</button>
+                <button type="submit" className="btn primary-btn">Add</button>
             </form>
             {todos.map((todo,i) => <ToDoItem key={i} todo={todo} onClick={(current)=>handleItemClick(i, current)} onRemove={()=>handleItemRemove(i)}/>)}
         </div>

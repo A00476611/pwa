@@ -1,3 +1,5 @@
+import { MdDelete } from "react-icons/md"
+
 export type ToDoItemType = {
     isCompleted:boolean,
     title:string
@@ -11,12 +13,12 @@ export type ToDoItemProps = {
 
 export const ToDoItem = ({todo, onClick, onRemove}:ToDoItemProps) => {
     return (
-        <div>
+        <div className="ToDoItem">
             <div onClick={()=>onClick(todo.isCompleted)}>
                 <input type="checkbox" checked={todo.isCompleted} readOnly/>
                 <span>{todo.title}</span>
             </div>
-            <button onClick={onRemove}>Remove</button>
+            <MdDelete onClick={onRemove}/>
         </div>
     )
 }
