@@ -6,7 +6,7 @@ let initialTodos = ToDoStorage.getAll()
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem("theme"))
   const toggleTheme = () => {
-    setTheme(theme => theme == "dark" ? "light" : "dark")    
+    setTheme(theme => theme === "dark" ? "light" : "dark")    
   }
 
   useEffect(()=>{
@@ -21,7 +21,7 @@ function App() {
       <div className='nav'>
         <h1> My Todos </h1>
         <button onClick={toggleTheme}>
-          {theme =="dark" ? <MdModeNight /> : <MdSunny/>}
+          {theme === "dark" ? <MdModeNight /> : <MdSunny/>}
         </button>
       </div>
       <ToDoList initialTodos={initialTodos}/>
