@@ -50,9 +50,9 @@
 button {
   border:none;
   cursor: pointer;
-  font-size: large;
   border-radius: 5px;
   box-sizing: border-box;
+  padding: 5px;
 }
 
 .primary-btn {

@@ -1,15 +1,14 @@
 :root {
   --body-background: whitesmoke;
-  /*--primary-color: #38f758;*/
-  --primary-color:#20b440;
+  --primary-color: rgb(0, 117, 255);
   --text-color: #212427;
   --nav-background: white;
 }
 
 [theme="dark"] {
-  --body-background:#31304D;
-  --text-color: #F0ECE5;
-  --nav-background: #161A30;
+  --body-background:rgb(23,23,26);
+  --text-color: #eaedf2;
+  --nav-background: rgb(34,34,40);
 }
 
 *{

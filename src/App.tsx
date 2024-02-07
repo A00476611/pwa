@@ -4,14 +4,16 @@ import { ToDoList, ToDoStorage } from './components/ToDoList';
 import {MdSunny, MdModeNight} from 'react-icons/md'
 let initialTodos = ToDoStorage.getAll()
 function App() {
-  const [theme, setTheme] = useState(document.querySelector("body")?.getAttribute("theme"))
+  const [theme, setTheme] = useState(localStorage.getItem("theme"))
   const toggleTheme = () => {
     setTheme(theme => theme == "dark" ? "light" : "dark")    
   }
 
   useEffect(()=>{
-    if(theme)
+    if(theme){
       document.querySelector("body")?.setAttribute("theme", theme)
+      localStorage.setItem("theme", theme)
+    }
   }, [theme])
 
   return (

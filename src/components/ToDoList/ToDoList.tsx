@@ -33,12 +33,14 @@ export const ToDoList = ({initialTodos = []}:{initialTodos?:ToDoItemType[]}) => 
     }, [todos])
 
     return (
-        <div className="ToDoList">
+        <div className="ToDoList">            
+            <div>
+                {todos.map((todo,i) => <ToDoItem key={i} todo={todo} onClick={(current)=>handleItemClick(i, current)} onRemove={()=>handleItemRemove(i)}/>)}
+            </div>
             <form onSubmit={handleAdd}>
-                <input name="newItem"/>
+                <input name="newItem" placeholder="New Item..."/>
                 <button type="submit" className="btn primary-btn">Add</button>
             </form>
-            {todos.map((todo,i) => <ToDoItem key={i} todo={todo} onClick={(current)=>handleItemClick(i, current)} onRemove={()=>handleItemRemove(i)}/>)}
         </div>
     )
 }
