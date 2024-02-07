@@ -1,12 +1,10 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { ToDoList } from './components/ToDoList/ToDoList';
-
+import { ToDoList, ToDoStorage } from './components/ToDoList';
+let initialTodos = ToDoStorage.getAll()
 function App() {
   return (
     <div className="App">
-      <ToDoList />
+      <ToDoList initialTodos={initialTodos}/>
     </div>
   );
 }

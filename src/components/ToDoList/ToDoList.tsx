@@ -1,5 +1,5 @@
-import { ToDoItem, ToDoItemType } from "./ToDoItem"
-import { FormEventHandler, useState } from "react"
+import { ToDoItem, ToDoItemType, ToDoStorage } from "./"
+import { FormEventHandler, useEffect, useState } from "react"
 
 export const ToDoList = ({initialTodos = []}:{initialTodos?:ToDoItemType[]}) => {
     const [todos, setTodos] = useState(initialTodos)
@@ -26,6 +26,10 @@ export const ToDoList = ({initialTodos = []}:{initialTodos?:ToDoItemType[]}) => 
             return copy
         })
     }
+
+    useEffect(()=>{
+        ToDoStorage.setAll(todos)
+    }, [todos])
 
     return (
         <div className="TodoList">
