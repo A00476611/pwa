@@ -1,9 +1,11 @@
 :root{
     --input-bg:rgb(242 242 242);
+    --input-placeholder-color:gray;
 }
 
 [theme="dark"] {
     --input-bg:rgb(101, 100, 105);
+    --input-placeholder-color:white;
 }
 
 .ToDoList{
@@ -39,10 +41,14 @@
     margin-right: 50px ;
     height: 35px;
     width: 60%;
-    /* border: 1px solid gainsboro; */
     box-sizing: border-box;
-    background-color: rgba(141, 141, 141, 0.185);
+    /* background-color: rgba(141, 141, 141, 0.185); */
+    background-color: var(--input-bg);
     color: var(--text-color);
+}
+
+.ToDoList > form > input::placeholder {
+    color: var(--input-placeholder-color);
 }
 
 .ToDoList > form > button {    
@@ -78,7 +84,7 @@
 
 .ToDoItem span {
     font-weight:500;
-   font-size: 1.1rem;
+    font-size: 1.1rem;
 }
 
 

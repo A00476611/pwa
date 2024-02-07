@@ -11,7 +11,7 @@ const cacheFirst = async (request) => {
         return responseFromCache;
     }
     const responseFromNetwork = await fetch(request);
-    if(responseFromNetwork.ok)
+    if(responseFromNetwork.url.startsWith('http'))
         putInCache(request, responseFromNetwork.clone());
     return responseFromNetwork;
 };
