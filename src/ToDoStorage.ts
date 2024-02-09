@@ -1,13 +1,13 @@
-import { ToDoItemType } from "./";
+import { ToDoItemType } from "./App";
 
 export const ToDoStorage = {
-    getAll:():ToDoItemType[] | [] => {
+    getAllTodos:():ToDoItemType[] | [] => {
         let storageString = localStorage.getItem("todos")
         if(!storageString) return []
         return JSON.parse(storageString) as ToDoItemType[]
     },
 
-    setAll:(todos:ToDoItemType[]) => {
+    setAllTodos:(todos:ToDoItemType[]) => {
         localStorage.setItem("todos", JSON.stringify(todos))
-    }
+    },
 }
