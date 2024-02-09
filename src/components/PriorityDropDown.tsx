@@ -19,12 +19,12 @@ export const PriotityDropDown = ({name, value, onChange}:PriotityDropDownProps) 
         {
             onChange != undefined ? 
 
-            <select name={name} value={value} onChange={e=>onChange(parseInt(e.target.value) as PriorityIndex)}>
-                {priorities.map((priority,i) => <option value={priority}>{priorities[i]}</option>)}
+            <select className="PriorityDropDown" name={name} value={value} onChange={e=>onChange(parseInt(e.target.value) as PriorityIndex)}>
+                {priorities.map((priority,i) => <option key={i} value={i}>{priority}</option>)}
             </select>
             :
-            <select name={name}>
-                {priorities.map((priority,i) => <option value={priority}>{priorities[i]}</option>)}
+            <select className="PriorityDropDown" name={name}>
+                {priorities.map((priority,i) => <option key={i} value={i}>{priority}</option>)}
             </select>
         }
         </>
