@@ -1,0 +1,21 @@
+.option-btn {
+    display: flex;
+    width: fit-content;    
+    background-color:transparent;
+    font-size: medium;
+    color: var(--subtle);
+    padding: 10px;
+    box-shadow: none;
+    transition: .2s;
+}
+
+.option-btn:hover {
+    background-color:rgba(102, 102, 102, 0.123);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.option-btn svg {
+    height: 15px;
+    width: 15px;
+    margin-right: 10px ;
+}

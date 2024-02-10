@@ -1,50 +1,98 @@
 
 :root {
-  --switcher-background: rgba(0, 0, 0, 0.082);
-  --switcher-color: rgb(88, 88, 88);
+  --button-background: rgba(0, 0, 0, 0.082);
+  --button-color: rgb(88, 88, 88);
+  --input-bg:rgb(242 242 242);
+  --input-placeholder-color:gray;
+  --nav-background: var(--primary-color);
 }
 
 [theme="dark"] {
-  --switcher-background: rgba(255, 255, 255, 0.082);
-  --switcher-color: rgb(179, 176, 176);
+  --button-background: rgba(255, 255, 255, 0.082);
+  --button-color: rgb(179, 176, 176);
+  --input-bg:rgb(101, 100, 105);
+  --input-placeholder-color:white;
+  --nav-background: var(--card-background);
 }
 
 .App {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 .nav {
   width: 100%;
-  box-sizing: border-box;
+  box-sizing: border-box;  
+  background-color: var( --nav-background);
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: var(--nav-background);
-  padding: 1vh 2vw;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  color: var(--text-color);
+  justify-content: start;
 }
 
-.nav > h1 {
-  justify-self: center;
-  font-size: 1.9rem;
+.nav >  h1 {
+  font-size: 1rem;
+  color: #eaedf2;
 }
 
-.nav > button {
-  background-color: var(--switcher-background);
+.nav > button {  
+  margin-right: 30px;
+  color: white;
+}
+
+.horizontal-flex {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  background-color: var(--button-background);
   padding: 3px;
-  color:var(--switcher-color);
-  width: 40px;
-  height: 40px;
+  color:var(--button-color);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.nav > button > svg {
+button > svg {
   font-size: 1.2rem;
+}
+
+#SideMenu {
+  height: 100%;
+  width: 0; 
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: var(--card-background) ;
+  overflow-x: hidden;
+  transition: 0.2s;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+#SideMenu > div {
+  margin: 1rem;
+}
+
+#SideMenu > div>  button {
+  margin-bottom: 10px;
+}
+
+#MenuOverlay {
+  background-color: rgba(0, 0, 0, 0.164);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 1;
+  transition: 0.5s;
 }
 
 button {
@@ -53,6 +101,13 @@ button {
   border-radius: 5px;
   box-sizing: border-box;
   padding: 5px;
+  box-shadow:  0px 0.3px 0.9px rgba(0,0,0,0.1),0px 1.6px 3.6px rgba(0,0,0,0.1);
+  transition: .2s;
+  /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
+}
+
+button:hover:active {
+  box-shadow: none;
 }
 
 .primary-btn {
@@ -60,9 +115,175 @@ button {
   color:white;
 }
 
-@media (min-height:1000px) {
-  .ToDoList {
-    margin-top: 3vh;
-    height: 90vh;
+.option-bar {
+  display: none;
+  align-items: center;
+  justify-content: start;
+  padding: 1rem;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+.option-bar > button {
+  margin-right: 30px;
+}
+
+#new-td {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-top: 1rem;
+  box-sizing: border-box;
+  width: 90vw;
+}
+
+#new-td > div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#new-td  label {
+  color: var(--subtle);
+  font-size: small                                                                                                          ;
+}
+
+#new-td select {
+  border: none;
+  font-size: 1rem;
+  margin-top: 5px;
+  padding: 3px;
+  background-color: transparent;
+  color: var(--text-color);
+  font-size: small;
+}
+
+#new-td option {
+  color:var(--text-color);
+  background-color: var(--card-background);
+  padding: 3px;
+}
+
+#new-td  input {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid transparent;
+  font-size: 1em;
+  transition: .2s;
+  height: 30px;
+  font-size: small;
+}
+
+#new-td  input:focus {
+  outline: none;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+#new-td > button {
+  justify-self: end;
+  width: 60px;
+}
+
+.card {
+  background-color: var(--card-background);
+  box-shadow: 0px 0.3px 0.9px rgba(0,0,0,0.1),0px 1.6px 3.6px rgba(0,0,0,0.1);
+  border-radius: 3px;
+}
+
+
+.todo-list{
+  margin-top: 10px;
+  padding: 1rem 0;
+  box-sizing: border-box;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.todo {
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding:1rem;
+  margin-top: 10px;
+  width: 90vw;
+  cursor: pointer;
+}
+
+.todo > div {
+  width: 80%;
+}
+
+.prior {
+  margin:0 20px;
+  height: 20px;
+  width: 20px;
+}
+
+.high-prior {
+  color: red;
+}
+
+.medium-prior {
+  color: var(--primary-color);
+}
+
+.low-prior {
+  color: green;
+}
+
+@media (min-width: 720px) {
+  .nav {
+    padding-left: 30px;
   }
+  .nav > button {
+    display: none;
+  }
+
+  .option-bar {
+    display: flex;
+  }
+
+  #new-td {
+    margin-top: 0px;
+    width: 98vw;
+  }
+
+  #new-td > div {
+    margin-bottom: 0;
+    width: initial;
+  }
+
+  #new-td > div > input {
+    width: inherit;
+    margin-right: 60px;
+    font-size: initial;
+  }
+
+  #new-td label{
+    font-size: initial;
+  }
+
+  #new-td select {
+    font-size: initial
+  }
+
+  .todo {
+    width: 98vw;
+  }
+
+
+  .ToDoItem {
+    padding: 0px 50px;
+  }
+
+  .todo:hover {
+    background-color: rgba(128, 128, 128, 0.062);
+  }
+  .remove-btn:hover {
+    background-color: rgb(252, 194, 194);
+  }
+
+  
 }

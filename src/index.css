@@ -1,14 +1,16 @@
 :root {
   --body-background: whitesmoke;
-  --primary-color: rgb(0, 117, 255);
+  --primary-color: #0075ff;
   --text-color: #212427;
-  --nav-background: white;
+  --card-background: white;
+  --subtle: rgb(99, 99, 99)
 }
 
 [theme="dark"] {
   --body-background:rgb(23,23,26);
   --text-color: #eaedf2;
-  --nav-background: rgb(34,34,40);
+  --card-background: #222228;
+  --subtle: rgb(177, 177, 177)
 }
 
 *{
@@ -16,7 +18,7 @@
   padding: 0;
 }
 
-h1, h2, p, span, li{
+h1, h2, p, span, li, label{
   transition: color 200ms;
   color: var(--text-color);
 }
@@ -33,6 +35,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--body-background);
+  overflow-x: hidden;
 }
 
 code {
