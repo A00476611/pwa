@@ -9,6 +9,7 @@ export const useTheme = () => {
     useEffect(()=>{
         if(theme){
             document.querySelector("body")?.setAttribute("theme", theme)
+            document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#222228" :"#0075ff")
             localStorage.setItem("theme", theme)
         }
     }, [theme])

@@ -1,6 +1,6 @@
 :root {
   --body-background: whitesmoke;
-  --primary-color: rgb(0, 117, 255);
+  --primary-color: #0075ff;
   --text-color: #212427;
   --card-background: white;
   --subtle: rgb(99, 99, 99)
@@ -9,7 +9,7 @@
 [theme="dark"] {
   --body-background:rgb(23,23,26);
   --text-color: #eaedf2;
-  --card-background: rgb(34,34,40);
+  --card-background: #222228;
   --subtle: rgb(177, 177, 177)
 }
 

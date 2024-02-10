@@ -10,7 +10,8 @@
     {
       "src": "logo128.png",
       "type": "image/png",
-      "sizes": "128x128"
+      "sizes": "128x128",
+      "purpose":"maskable"
     },
     {
       "src": "logo512.png",
@@ -20,6 +21,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#0075ff",
   "background_color": "#ffffff"
 }

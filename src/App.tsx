@@ -20,11 +20,16 @@ type FilteredTodoItem = ToDoItemType & {
 function App() {
   const {theme, toggleTheme} = useTheme()
 
+  //State 
+  //------------------------------------------------------------------------------
   const [todos, setTodos] = useState<ToDoItemType[]>(ToDoStorage.getAllTodos())
   const [showCompleted, setShowCompleted] = useState(false)
   const [prioritySort, setPrioritySort] = useState(false)
   const [filteredTodos, setFilteredTodos] = useState<FilteredTodoItem[]>([])
+  //------------------------------------------------------------------------------
 
+  //Event Handlers
+  //------------------------------------------------------------------------------
   const handleAdd:FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault()
     const formData = Object.fromEntries(new FormData(e.currentTarget).entries())
@@ -68,6 +73,7 @@ function App() {
       overlay.style.display = "none"
     }
   }
+  //------------------------------------------------------------------------------
 
   const updateFilteredTodos = () => {
     let newFilteredTodos = todos.map((todo,i) => {
